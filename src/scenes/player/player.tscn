@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhqspalkxy6w0"]
+
+[ext_resource type="Script" path="res://src/scripts/player/player.gd" id="1_uem6r"]
+[ext_resource type="Texture2D" uid="uid://de6x8o35lyctb" path="res://icon.svg" id="1_vqndy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl80h"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_uem6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vqndy")
+
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_tl80h")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -67)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
